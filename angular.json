@@ -1,7 +1,42 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "abc8394e-b784-413f-8aa7-da02cd3d4ede"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "notification-bar": {
+      "projectType": "library",
+      "root": "projects/notification-bar",
+      "sourceRoot": "projects/notification-bar/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/notification-bar/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/notification-bar/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/notification-bar/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/notification-bar/src/test.ts",
+            "tsConfig": "projects/notification-bar/tsconfig.spec.json",
+            "karmaConfig": "projects/notification-bar/karma.conf.js"
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "notification-bar"
 }
