@@ -1,10 +1,11 @@
 import {
-  Component, OnInit, Optional, Inject,
+  Component, Optional, Inject,
   InjectionToken, OnDestroy
 } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { Notification, NotificationType } from './notification-bar.models';
-import { Subject, takeUntil } from 'rxjs';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { NotificationBarService } from './notification-bar.service';
 import { MessagesConfig } from './message-config';
 
